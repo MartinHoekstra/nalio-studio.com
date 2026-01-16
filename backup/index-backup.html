@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nalio — Official</title>
+
+  <meta name="description"
+        content="Nalio is an independent music label & production project. Pre-release. Official site for releases, credits, and updates." />
+
+  <style>
+    :root{
+      --black:#000;
+      --bg:#0b0c10;
+      --panel:#12131a;
+      --border:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --muted2:rgba(255,255,255,.55);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+
+    body{
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 20% 10%, rgba(170,120,255,.18), transparent 60%),
+        radial-gradient(800px 600px at 80% 25%, rgba(0,210,255,.14), transparent 60%),
+        var(--bg);
+    }
+
+    a{color:var(--text); text-decoration:none}
+    a:hover{text-decoration:underline; text-decoration-color:rgba(255,255,255,.35)}
+
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:28px 20px 70px;
+    }
+
+    /* TOP */
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:28px;
+      font-size:13px;
+      color:var(--muted2);
+      opacity:.85;
+      margin-bottom:18px;
+    }
+
+    .badge{
+      border:1px solid var(--border);
+      padding:6px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+    }
+
+    /* HERO */
+ .hero{
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:
+  radial-gradient(600px 420px at 25% 45%,
+    rgba(255,180,120,.14),
+    transparent 60%),
+  radial-gradient(520px 380px at 55% 50%,
+    rgba(170,120,255,.12),
+    transparent 65%),
+  linear-gradient(180deg,#11131a,#0c0d12);
+
+  display:grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items:center;
+  padding:72px 72px;
+  gap:64px;
+}
+
+/* LOGO ZONE — no box, ambient integration */
+.logo-wrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  isolation:isolate; /* zorgt dat ::before netjes binnen deze stack blijft */
+}
+
+.logo-wrap::before{
+  content:"";
+  position:absolute;
+  inset:-60px -120px;          /* groter zodat het echt zichtbaar is */
+  background:
+    radial-gradient(55% 50% at 50% 50%,
+      rgba(255,180,120,.22),
+      rgba(170,120,255,.16) 45%,
+      rgba(0,0,0,0) 72%);
+  filter: blur(22px);
+  opacity:.9;
+  z-index:-1;                  /* altijd achter het logo */
+  pointer-events:none;
+}
+
+.logo{
+  position:relative;
+  z-index:1;                   /* altijd boven glow */
+  max-width:620px;
+  width:100%;
+  height:auto;
+  display:block;
+  transform:translateX(-8px);
+}
+
+/* LOGO HOVER — subtle ambient glow */
+.logo{
+  /* transition: filter .35s ease, opacity .35s ease; */
+   transition: transform .6s ease, filter .6s ease, opacity .6s ease;
+}
+
+.logo-wrap::before{
+  transition: opacity .35s ease;
+  opacity:1;
+  /*filter: blur(26px);*/
+}
+
+.logo-wrap:hover::before{
+  opacity:1; /* versterkt bestaande glow */
+}
+
+.logo-wrap:hover .logo{
+  filter:
+    drop-shadow(0 0 18px rgba(170,120,255,.28))
+    drop-shadow(0 0 10px rgba(255,180,120,.22));
+    
+}
+
+.genre-line{
+  margin-top:10px;
+  font-size:12px;
+  color:var(--muted2);
+  font-style:italic;
+}
+
+    /* TEXT ZONE */
+   /* TEXT ZONE */
+.hero-content{
+  padding:0;              /* geen extra inspringing */
+  text-align:center;
+  max-width:420px;        /* rustiger blok */
+  justify-self:center;    /* center in grid cell */
+  transform:translateX(-6px);
+}
+
+    .sub{
+      max-width:70ch;
+      margin:0 auto 16px;
+      font-size:16px;
+      line-height:1.6;
+      color:var(--muted);
+    }
+
+    .cta{
+      margin-top:14px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:12px 18px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.06);
+      font-weight:600;
+      font-size:13px;
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg,
+        rgba(255,180,120,.22),
+        rgba(170,120,255,.18));
+    }
+
+    .hint{
+      margin-top:10px;
+      font-size:12px;
+      color:var(--muted2);
+    }
+
+    /* SECTIONS */
+    .grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+      margin-top:28px;
+    }
+
+    @media(max-width:880px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:20px;
+    }
+
+    .card h2{
+      margin:0 0 8px;
+      font-size:14px;
+      letter-spacing:.3px;
+    }
+
+    .card p{
+      margin:0;
+      font-size:13px;
+      line-height:1.6;
+      color:var(--muted);
+    }
+
+    .pills{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .pill{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+    }
+
+    /* FOOTER */
+    .footer{
+      margin-top:40px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      font-size:12px;
+      color:var(--muted2);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <div class="badge">pre-release</div>
+      <div>Independent music project</div>
+    </div>
+
+    <section class="hero">
+      <!-- PURE BLACK LOGO AREA -->
+      <div class="logo-wrap">
+        <img class="logo" src="nalio-logo.png" alt="Nalio">
+      </div>
+
+      <!-- CONTENT -->
+      <div class="hero-content">
+        <p class="sub">
+          Electronic music for moments of connection.
+          Groove, emotion and intimacy — music to move with and stay with you.
+        </p>
+
+      </div>
+    </section>
+
+    <div class="grid">
+      <div class="card">
+        <h2>About</h2>
+       <p>
+        Nalio is an independent music label and production project built around mood,
+        restraint and emotional depth.
+        The focus is not on volume, but on intention — music that breathes, moves slowly,
+        and stays with you beyond the moment.
+      </p>
+<p>
+  Each release is shaped with care and clarity, balancing modern electronic
+  production with a strong sense of atmosphere and timing.
+</p>
+        <div class="pills">
+          <span class="pill">Nu-disco</span>
+          <span class="pill">Romantic disco-house</span>
+          <span class="pill">Emotive electronic ballads</span>
+          <span class="pill">Melodic late-night music</span>
+        </div>
+        <p class="genre-line">
+  From groove-driven nights to intimate, emotive moments.
+</p>
+      </div>
+      <div class="card">
+
+        <h2>Approach</h2>
+     <p>
+      Nalio is shaped from a deeply personal place.
+      Much of the music is inspired by connection, intimacy and shared moments —
+      the quiet energy between two people that doesn’t need explanation.
+    </p>
+    <p>
+      Technology, including AI-assisted tools, helps translate that feeling into sound:
+      exploring textures, variations and emotional nuance.
+      The direction, selection and final form remain human, intuitive and deliberate.
+    </p>
+
+    <p class="hint">
+  First releases are currently in preparation.
+</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>© Nalio Studio</div>
+      <div>
+      <a href="mailto:contact@nalio-studio.com">Contact</a> </div>
+      <div>Netherlands / EU</div>
+    </div>
+
+  </div>
+</body>
+</html>

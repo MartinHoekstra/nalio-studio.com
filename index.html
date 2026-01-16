@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nalio — Official</title>
+
+<meta name="description"
+      content="Nalio is an independent music label & production project. Pre-release. Official site for releases, credits, and updates." />
+
+<style>
+:root{
+  --bg:#0b0c10;
+  --panel:#12131a;
+  --border:rgba(255,255,255,.12);
+  --text:rgba(255,255,255,.92);
+  --muted:rgba(255,255,255,.70);
+  --muted2:rgba(255,255,255,.55);
+  --radius:18px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+
+/* === GLOBAL BACKGROUND (NO SEAMS) === */
+html{
+  background:
+    radial-gradient(1400px 900px at 15% 0%, rgba(170,120,255,.18), transparent 70%),
+    /*radial-gradient(1400px 900px at 85% 30%, rgba(0,210,255,.16), transparent 70%),*/
+    radial-gradient(1600px 1100px at 85% 30%, rgba(0,210,255,.18), transparent 72%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+body{
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  color:var(--text);
+  background:transparent;
+  min-height:100vh;
+}
+
+a{color:var(--text); text-decoration:none}
+a:hover{text-decoration:underline; text-decoration-color:rgba(255,255,255,.35)}
+
+.wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:28px 20px 70px;
+}
+
+/* TOP */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:13px;
+  color:var(--muted2);
+  opacity:.85;
+  margin-bottom:18px;
+}
+
+.badge{
+  border:1px solid var(--border);
+  padding:6px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.04);
+}
+
+/* HERO */
+.hero{
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:
+    radial-gradient(600px 420px at 25% 45%, rgba(255,180,120,.14), transparent 60%),
+    radial-gradient(520px 380px at 55% 50%, rgba(170,120,255,.12), transparent 65%),
+    linear-gradient(180deg,#11131a,#0c0d12);
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  padding:72px;
+  gap:64px;
+}
+
+/* LOGO */
+.logo-wrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  isolation:isolate;
+}
+
+.logo-wrap::before{
+  content:"";
+  position:absolute;
+  inset:-60px -120px;
+  background:
+    radial-gradient(55% 50% at 50% 50%,
+      rgba(255,180,120,.22),
+      rgba(170,120,255,.16) 45%,
+      transparent 72%);
+  filter:blur(22px);
+  opacity:.9;
+  z-index:-1;
+}
+
+.logo{
+  max-width:620px;
+  width:100%;
+  height:auto;
+  display:block;
+  transform:translateX(-8px);
+  transition:transform .6s ease, filter .6s ease, opacity .6s ease;
+}
+
+.logo-wrap:hover .logo{
+  filter:
+    drop-shadow(0 0 18px rgba(170,120,255,.28))
+    drop-shadow(0 0 10px rgba(255,180,120,.22));
+}
+
+/* HERO TEXT */
+.hero-content{
+  text-align:center;
+  max-width:420px;
+  justify-self:center;
+}
+
+.hero-content h1,
+.hero-content .headline {
+  letter-spacing: 0.04em;
+}
+
+.hero-content .sub{
+  letter-spacing: 0.02em;
+}
+
+.sub{
+  font-size:16px;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+.hero-content .sub{
+  font-size:15px;
+  color:var(--muted);
+}
+
+.hero h1{
+  letter-spacing:0.04em;
+}
+
+.hero-sub{
+  font-size:15px;          /* visueel = subtekst */
+  font-weight:400;
+  line-height:1.6;
+  letter-spacing:0.03em;
+  color:var(--muted);
+  margin:16px 0 0;
+}
+
+/* SECTIONS */
+.grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:18px;
+  margin-top:28px;
+}
+
+@media(max-width:880px){
+  .grid{grid-template-columns:1fr}
+}
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px;
+}
+
+.card h2{
+  margin:0 0 8px;
+  font-size:14px;
+  letter-spacing:.3px;
+}
+
+.card p{
+  margin:0 0 10px;
+  font-size:13px;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+.pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:8px;
+}
+
+.pill{
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+  color:var(--muted);
+}
+
+.genre-line{
+  margin-top:10px;
+  font-size:12px;
+  color:var(--muted2);
+  font-style:italic;
+}
+
+.about-footnote{
+  margin-top:10px;
+  font-size:12px;
+  font-style:italic;
+  color:var(--muted2);
+}
+
+
+/* FOOTER */
+.footer{
+  margin-top:40px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  font-size:12px;
+  color:var(--muted2);
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="badge">pre-release</div>
+    
+  </div>
+
+  <section class="hero">
+    <div class="logo-wrap">
+      <img class="logo" src="/assets/nalio-logo.png" alt="Nalio">
+    </div>
+
+    <div class="hero-content">
+      <p class="sub">
+        <h1>Electronic music for moments of connection</h1><br>
+        <h2 class="hero-sub">Groove, intimacy and emotion — music to move with and stay with you.</h2>
+      </p>
+    </div>
+  </section>
+
+  <div class="grid">
+    <div class="card">
+      <h2>About</h2>
+      <p>
+        Nalio is an independent music project built around mood,
+        restraint and emotional depth. The focus is not on volume, but on intention —
+        music that breathes, moves slowly, and stays with you beyond the moment.
+      </p>
+      <p>
+        Each release is shaped with care and clarity, balancing modern electronic
+        production with a strong sense of atmosphere and timing.
+      </p>
+
+      <div class="pills">
+        <span class="pill">Nu-disco</span>
+        <span class="pill">Romantic disco-house</span>
+        <span class="pill">Emotive electronic ballads</span>
+        <span class="pill">Melodic late-night music</span>
+      </div>
+
+      <div class="genre-line">
+        <br>
+        From groove-driven nights to intimate, emotive moments.
+      </div>
+<br>
+ <p class="about-footnote">
+  Created for listeners and curators who value mood, restraint and emotional presence over volume.
+</p>
+
+    </div>
+
+   
+    <div class="card">
+      <h2>Approach</h2>
+      <p>
+        Nalio is shaped from a deeply personal place. Much of the music is inspired by
+        connection, intimacy and shared moments — the quiet energy between two people
+        that doesn’t need explanation.
+      </p>
+      <p>
+        Technology, including AI-assisted tools, helps translate that feeling into sound:
+        exploring textures, variations and emotional nuance. The direction, selection
+        and final form remain human, intuitive and deliberate.
+      </p>
+      <br>
+      <p class="genre-line">
+        First releases are currently in preparation.
+      </p>
+    </div>
+  </div>
+
+  
+  <div class="footer">
+    <div>© Nalio Studio</div>
+    <div><a href="mailto:contact@nalio-studio.com">Contact</a></div>
+    <div>Netherlands / EU</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.DS_Store
+*.tmp
+
+# design source files (nooit in repo)
+*.afphoto
+*.afdesign
+*.psd
+
+# large media safety
+*.wav
+*.aiff
+*.mp3
+*.m4a
+*.flac
+*.mp4
+*.mov
