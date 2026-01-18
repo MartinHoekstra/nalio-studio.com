@@ -22,11 +22,10 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 
-/* === GLOBAL BACKGROUND (NO SEAMS) === */
+/* === GLOBAL BACKGROUND === */
 html{
   background:
     radial-gradient(1400px 900px at 15% 0%, rgba(170,120,255,.18), transparent 70%),
-    /*radial-gradient(1400px 900px at 85% 30%, rgba(0,210,255,.16), transparent 70%),*/
     radial-gradient(1600px 1100px at 85% 30%, rgba(0,210,255,.18), transparent 72%),
     var(--bg);
   background-attachment: fixed;
@@ -111,7 +110,6 @@ a:hover{text-decoration:underline; text-decoration-color:rgba(255,255,255,.35)}
   height:auto;
   display:block;
   transform:translateX(-8px);
-  transition:transform .6s ease, filter .6s ease, opacity .6s ease;
 }
 
 .logo-wrap:hover .logo{
@@ -127,32 +125,12 @@ a:hover{text-decoration:underline; text-decoration-color:rgba(255,255,255,.35)}
   justify-self:center;
 }
 
-.hero-content h1,
-.hero-content .headline {
-  letter-spacing: 0.04em;
-}
-
-.hero-content .sub{
-  letter-spacing: 0.02em;
-}
-
-.sub{
-  font-size:16px;
-  line-height:1.6;
-  color:var(--muted);
-}
-
-.hero-content .sub{
-  font-size:15px;
-  color:var(--muted);
-}
-
-.hero h1{
+.hero-content h1{
   letter-spacing:0.04em;
 }
 
 .hero-sub{
-  font-size:15px;          /* visueel = subtekst */
+  font-size:15px;
   font-weight:400;
   line-height:1.6;
   letter-spacing:0.03em;
@@ -222,6 +200,64 @@ a:hover{text-decoration:underline; text-decoration-color:rgba(255,255,255,.35)}
   color:var(--muted2);
 }
 
+/* =========================
+   RELEASES SECTION
+   ========================= */
+
+.releases{
+  margin-top:28px;
+}
+
+.releases h2{
+  margin:0 0 8px;
+  font-size:14px;
+  letter-spacing:.3px;
+}
+
+.releases .section-note{
+  font-size:13px;
+  color:var(--muted2);
+  font-style:italic;
+}
+
+/* === FUTURE RELEASE GRID (inactive until cards added) === */
+
+.release-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  margin-top:14px;
+}
+
+.release-card{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  transition:transform .22s ease;
+}
+
+.release-card::before{
+  content:"";
+  position:absolute;
+  inset:-22px;
+  opacity:0;
+  filter:blur(18px);
+  transition:opacity .22s ease;
+  background:
+    radial-gradient(40% 40% at 25% 20%, rgba(255,255,255,.18), transparent 60%),
+    radial-gradient(45% 45% at 80% 30%, rgba(255,255,255,.14), transparent 65%),
+    radial-gradient(55% 55% at 45% 85%, rgba(255,255,255,.12), transparent 70%);
+}
+
+.release-card:hover{
+  transform:scale(1.03);
+}
+
+.release-card:hover::before{
+  opacity:1;
+}
 
 /* FOOTER */
 .footer{
@@ -240,7 +276,6 @@ a:hover{text-decoration:underline; text-decoration-color:rgba(255,255,255,.35)}
 
   <div class="topbar">
     <div class="badge">pre-release</div>
-    
   </div>
 
   <section class="hero">
@@ -249,11 +284,11 @@ a:hover{text-decoration:underline; text-decoration-color:rgba(255,255,255,.35)}
     </div>
 
     <div class="hero-content">
-      <p class="sub">
-        <h1>Electronic music for moments of connection</h1><br>
-        <h2 class="hero-sub">Groove, intimacy and emotional depth —
-music that moves with you, and stays when the moment fades.</h2>
-      </p>
+      <h1>Electronic music for moments of connection</h1>
+      <h2 class="hero-sub">
+        Groove, intimacy and emotional depth —
+        music that moves with you, and stays when the moment fades.
+      </h2>
     </div>
   </section>
 
@@ -261,12 +296,11 @@ music that moves with you, and stays when the moment fades.</h2>
     <div class="card">
       <h2>About</h2>
       <p>
-      Nalio is an independent electronic music project built around mood, restraint and emotional depth.
-The focus is not on volume, but on intention — music that breathes, moves slowly, and stays with you beyond the moment.
+        Nalio is an independent electronic music project built around mood, restraint and emotional depth.
+        The focus is not on volume, but on intention — music that breathes, moves slowly, and stays with you beyond the moment.
       </p>
       <p>
-       Each release balances modern electronic production with atmosphere and timing, creating space for connection rather than spectacle.
-       From groove-driven nights to intimate, emotive moments.
+        Each release balances modern electronic production with atmosphere and timing, creating space for connection rather than spectacle.
       </p>
 
       <div class="pills">
@@ -276,36 +310,39 @@ The focus is not on volume, but on intention — music that breathes, moves slow
         <span class="pill">Melodic late-night music</span>
       </div>
 
-      <div class="genre-line">
-        <br>
-        From groove-driven nights to intimate, emotive moments.
-      </div>
-<br>
- <p class="about-footnote">
-  Created for listeners and curators who value mood, restraint and emotional presence over volume.
-</p>
-
+      <p class="about-footnote">
+        Created for listeners and curators who value mood, restraint and emotional presence over volume.
+      </p>
     </div>
 
-   
     <div class="card">
       <h2>Approach</h2>
       <p>
-       Nalio is shaped from a deeply personal place.
-The music is inspired by connection, intimacy and shared moments — the quiet energy between people that doesn’t need explanation.
+        Nalio is shaped from a deeply personal place.
+        The music is inspired by connection, intimacy and shared moments — the quiet energy between people that doesn’t need explanation.
       </p>
       <p>
         Technology, including AI-assisted tools, supports this process by exploring textures and emotional nuance.
-The direction, selection and final form remain human, intuitive and deliberate.
-      </p>
-      <br>
-      <p class="genre-line">
-        First releases are currently in preparation.
+        The direction, selection and final form remain human, intuitive and deliberate.
       </p>
     </div>
   </div>
 
-  
+  <!-- =========================
+       RELEASES (placeholder now)
+       ========================= -->
+  <section class="releases">
+    <h2>Releases</h2>
+    <p class="section-note">First releases are currently in preparation.</p>
+
+    <!--
+    FUTURE:
+    <div class="release-grid">
+      <article class="release-card">...</article>
+    </div>
+    -->
+  </section>
+
   <div class="footer">
     <div>© Nalio Studio</div>
     <div><a href="mailto:contact@nalio-studio.com">Contact</a></div>
